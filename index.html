@@ -12,23 +12,38 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
-  <!-- =========================
-      Project Modal (Assignment 4)
-  ========================= -->
-  <div id="projectModal" class="modal">
-    <div class="modal-content">
-      <span class="close-btn">&times;</span>
+<!-- Project Details Modal -->
+<div id="projectModal" class="modal" aria-hidden="true">
+  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="close-btn" type="button" aria-label="Close modal">&times;</button>
 
-      <h2 id="modalTitle"></h2>
-      <p id="modalDescription"></p>
+    <h2 id="modalTitle"></h2>
 
-      <ul id="modalTech"></ul>
-
-      <a id="modalLink" target="_blank" rel="noopener noreferrer">
-        View on GitHub
-      </a>
+    <div class="modal-section">
+      <h3>Problem</h3>
+      <p id="modalProblem"></p>
     </div>
+
+    <div class="modal-section">
+      <h3>Solution</h3>
+      <p id="modalSolution"></p>
+    </div>
+
+    <div class="modal-section">
+      <h3>Key Features</h3>
+      <ul id="modalFeatures"></ul>
+    </div>
+
+    <div class="modal-section">
+      <h3>Technologies</h3>
+      <ul id="modalTech"></ul>
+    </div>
+
+    <a id="modalLink" class="modal-link" target="_blank" rel="noopener noreferrer">
+      View on GitHub
+    </a>
   </div>
+</div>
 
 <body>
   <!-- =========================
@@ -192,18 +207,18 @@
           </p>
 
           <div class="card-actions">
-            <button class="view-btn"
-              data-title="Folder Visualizer"
 
-              data-description="This project solves the problem of understanding storage usage in complex folders. It provides a visual representation of files and folders based on size."
-
-              data-tech="Java, File System, Data Visualization"
-
-              data-features="Scan directories, Calculate sizes, Visual comparison bars"
-
+            <button
+  class="view-btn"
+  type="button"
+  data-title="Folder Visualizer"
+  data-problem="Users often struggle to understand which folders or files are taking the most storage space."
+  data-solution="The application scans a selected directory, calculates file and folder sizes, and visualizes them using size-based bars."
+  data-features="Directory scanning,Size calculation,Visual comparison bars,Folder and file color coding"
+  data-tech="Java,File System,Data Visualization,Desktop UI"
               data-link="https://github.com/Lama-AlThunayyan/SWE-316--HW2---Folder-Visualizer.git">
-              View
-            </button>
+  View Details
+</button>
           </div>
         </article>
 
@@ -230,18 +245,18 @@
           </p>
 
           <div class="card-actions">
-            <button class="view-btn"
-              data-title="Weekly Schedule Distance Visualizer"
 
-              data-description="This project helps students understand their daily movement between buildings by analyzing their schedule and calculating walking distances."
-
-              data-tech="JavaScript, Maps, Data Processing"
-
-              data-features="CRN input, Day filtering, Distance calculation, Path visualization"
-
+            <button
+  class="view-btn"
+  type="button"
+  data-title="Weekly Schedule Distance Visualizer"
+  data-problem="Students may not realize how much walking distance their daily schedule requires between campus buildings."
+  data-solution="The application uses CRNs and selected days to display courses, buildings, walking distance, and the path visually on a campus map."
+  data-features="CRN input,Day filtering,Course summary,Building count,Walking distance calculation,Path visualization"
+  data-tech="JavaScript,Data Processing,Maps,UI Design"
               data-link="https://github.com/Lama-AlThunayyan/hw1-SWE316---Term-Schedule-Visualization.git">
-              View
-            </button>
+  View Details
+</button>
           </div>
         </article>
 
