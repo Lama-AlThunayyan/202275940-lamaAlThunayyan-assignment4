@@ -281,3 +281,65 @@ async function loadGitHubRepos() {
 }
 
 loadGitHubRepos();
+
+// =========================
+// Project Modal
+// =========================
+const modal = document.getElementById("projectModal");
+const closeBtn = document.querySelector(".close-btn");
+
+const modalTitle = document.getElementById("modalTitle");
+const modalDescription = document.getElementById("modalDescription");
+const modalTech = document.getElementById("modalTech");
+const modalLink = document.getElementById("modalLink");
+
+const viewButtons = document.querySelectorAll(".view-btn");
+
+viewButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    modal.style.display = "block";
+
+    modalTitle.textContent = btn.dataset.title;
+    modalDescription.textContent = btn.dataset.description;
+
+    // Technologies list
+    modalTech.innerHTML = "";
+    const techList = btn.dataset.tech.split(",");
+    techList.forEach(t => {
+      const li = document.createElement("li");
+      li.textContent = t.trim();
+      modalTech.appendChild(li);
+    });
+
+    modalLink.href = btn.dataset.link;
+  });
+});
+
+// Close modal
+closeBtn.onclick = () => modal.style.display = "none";
+
+// Close when clicking outside
+window.onclick = (e) => {
+  if (e.target === modal) modal.style.display = "none";
+};
+
+// =========================
+// Smart Greeting (Assignment 4)
+// =========================
+const greetingMessage = document.getElementById("greetingMessage");
+
+const hour = new Date().getHours();
+let greeting = "Hello";
+
+if (hour < 12) greeting = "Good morning";
+else if (hour < 18) greeting = "Good afternoon";
+else greeting = "Good evening";
+
+// Optional: if name exists
+const savedName = localStorage.getItem("visitorName");
+
+if (savedName) {
+  greetingMessage.textContent = `👋 ${greeting}, ${savedName}!`;
+} else {
+  greetingMessage.textContent = `👋 ${greeting}! Welcome to my portfolio.`;
+}
