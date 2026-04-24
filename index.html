@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic page setup -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Browser tab title -->
+  <title>My Portfolio</title>
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <!-- =========================
+       Header / Navigation
+  ========================== -->
+  <header class="header" id="top">
+    <nav class="nav container">
+      <!-- Website logo / home link -->
+      <a class="logo" href="#top">MyPortfolio</a>
+
+      <!-- Mobile menu toggle button -->
+      <button
+        class="menu-btn"
+        id="menuBtn"
+        type="button"
+        aria-label="Toggle menu"
+      >
+        ☰
+      </button>
+
+      <!-- Navigation links -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#github">GitHub</a></li>
+        <li><a href="#contact">Contact</a></li>
+
+        <!-- Theme toggle button -->
+        <li>
+          <button
+            class="theme-btn"
+            id="themeBtn"
+            type="button"
+            aria-label="Toggle theme"
+          >
+            🌙
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- =========================
+         Hero Section
+    ========================== -->
+    <section class="hero container">
+      <h1>Lama Al-Thunayyan</h1>
+      <p class="tagline">
+        Aspiring Web Developer • Building clean, responsive websites
+      </p>
+
+      <!-- Main action buttons -->
+      <div class="hero-actions">
+        <a class="cta" href="#projects">View Projects</a>
+        <a class="cta ghost" href="#contact">Contact Me</a>
+      </div>
+    </section>
+
+    <!-- =========================
+         About Section
+    ========================== -->
+    <section class="section container" id="about">
+      <h2>About Me</h2>
+
+      <div class="about-grid">
+        <!-- Profile image -->
+        <img
+          class="profile"
+          src="assets/images/profile-icon-design-free-vector.jpg"
+          alt="Profile photo"
+          loading="lazy"
+        />
+
+        <div>
+          <p>
+            Hi! I'm <strong>Lama Al-Thunayyan</strong>, a student learning web
+            development using HTML, CSS, and JavaScript. I enjoy building simple,
+            user-friendly interfaces and improving my skills through projects.
+          </p>
+
+          <p class="muted">
+            Interests: UI design, responsive layouts, and front-end fundamentals.
+          </p>
+
+          <!-- Small skill chips -->
+          <ul class="chips" aria-label="Skills">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>GitHub</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         Projects Section
+         Assignment 3 additions:
+         - Filter buttons
+         - Sort dropdown
+         - data-category
+         - data-title
+    ========================== -->
+    <section class="section container" id="projects">
+      <h2>Projects</h2>
+
+      <!-- Project controls:
+           Filter buttons + sorting dropdown -->
+      <div class="project-controls">
+        <!-- Filter buttons -->
+        <div class="filter-buttons">
+          <button type="button" class="filter-btn active" data-filter="all">
+            All
+          </button>
+          <button type="button" class="filter-btn" data-filter="app">
+            App
+          </button>
+          <button type="button" class="filter-btn" data-filter="web">
+            Web
+          </button>
+        </div>
+
+        <!-- Sort dropdown -->
+        <label for="sortProjects" class="sort-label">
+          Sort:
+          <select id="sortProjects">
+            <option value="default">Default</option>
+            <option value="az">A-Z</option>
+            <option value="za">Z-A</option>
+          </select>
+        </label>
+      </div>
+
+      <!-- Message shown if no projects match filter -->
+      <p id="emptyState" class="empty-state" hidden>No projects found.</p>
+
+      <!-- Project cards container -->
+      <div class="cards">
+        <!-- Project 1 -->
+        <article
+          class="card"
+          data-category="app"
+          data-title="Folder Visualizer"
+        >
+          <img
+            src="assets/images/project1.jpg"
+            alt="Project 1 preview"
+            loading="lazy"
+          />
+
+          <h3>Project 1: Folder Visualizer</h3>
+
+          <p>
+            This application allows users to select any directory on their system.
+            It scans all files and subfolders, calculates their sizes, and displays
+            them visually using size-based bars. Blue bars represent folders and
+            orange bars represent files, making it easy to compare storage
+            distribution.
+          </p>
+
+          <div class="card-actions">
+            <a class="link"
+              href="https://github.com/Lama-AlThunayyan/SWE-316--HW2---Folder-Visualizer.git"
+              target="_blank"
+              rel="noopener noreferrer">
+              View
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article
+          class="card"
+          data-category="web"
+          data-title="Weekly Schedule Distance Visualizer"
+        >
+          <img
+            src="assets/images/project2.jpg"
+            alt="Project 2 preview"
+            loading="lazy"
+          />
+
+          <h3>Project 2: Weekly Schedule Distance Visualizer</h3>
+
+          <p>
+            This application allows users to enter their CRNs and select specific
+            days of the week. The system displays the selected day’s courses,
+            number of courses, number of different buildings, and calculates the
+            total walking distance between buildings while displaying the path
+            visually on a campus map.
+          </p>
+
+          <div class="card-actions">
+            <a class="link"
+              href="https://github.com/Lama-AlThunayyan/hw1-SWE316---Term-Schedule-Visualization.git"
+              target="_blank"
+              rel="noopener noreferrer">
+              View
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- =========================
+         GitHub API Section
+         Assignment 3 addition
+         Repositories will be loaded
+         dynamically using JavaScript
+    ========================== -->
+    <section class="section container" id="github">
+      <h2>GitHub Repositories</h2>
+      <p class="muted">
+        Latest repositories fetched dynamically from the GitHub API.
+      </p>
+
+      <!-- Status message:
+           Loading / error / no repos -->
+      <div id="repoStatus" class="muted">Loading repositories...</div>
+
+      <!-- Repo cards will be injected here using JavaScript -->
+      <div class="cards" id="repoContainer"></div>
+    </section>
+
+    <!-- =========================
+         Contact Section
+         Includes validation-ready fields
+    ========================== -->
+    <section class="section container" id="contact">
+      <h2>Contact</h2>
+
+      <!-- novalidate allows custom JS validation instead of browser default -->
+      <form class="form" id="contactForm" novalidate>
+        <!-- Name field -->
+        <label for="name">
+          Name
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your name"
+            required
+          />
+          <small class="error-text" id="nameError"></small>
+        </label>
+
+        <!-- Email field -->
+        <label for="email">
+          Email
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="email@example.com"
+            required
+          />
+          <small class="error-text" id="emailError"></small>
+        </label>
+
+        <!-- Message field -->
+        <label for="message">
+          Message
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            placeholder="Write your message..."
+            required
+          ></textarea>
+          <small class="error-text" id="messageError"></small>
+        </label>
+
+        <!-- Submit button -->
+        <button type="submit">Send</button>
+
+        <!-- Dynamic success / error feedback -->
+        <p class="form-msg" id="formMsg" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <!-- =========================
+       Footer
+  ========================== -->
+  <footer class="footer">
+    <p>© <span id="year"></span> Lama Al Thunayyan</p>
+  </footer>
+
+  <!-- Main JavaScript file -->
+  <script src="js/script.js"></script>
+</body>
+</html>
