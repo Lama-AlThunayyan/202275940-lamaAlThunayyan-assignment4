@@ -156,6 +156,12 @@ More details are available in `docs/ai-usage-report.md`.
 
 ---
 
+## Live Deployment
+
+[View Live Website]https://lama-althunayyan.github.io/202275940-lamaAlThunayyan-assignment4/
+
+---
+
 ## Folder Structure  
 
 ```bash
