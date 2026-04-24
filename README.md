@@ -170,7 +170,9 @@ assignment-3/
 │   └── images/
 │       ├── profile-icon-design-free-vector.jpg 
 │       ├── project1.jpg
-│       └── project2.jpg
+│       ├── project2.jpg
+│       ├── Smart Task Manager.png
+│       └── Weather Dashboard.jpg
 ├── css/
 │   └── styles.css
 ├── docs/
@@ -178,6 +180,9 @@ assignment-3/
 │   └── technical-documentation.md
 ├── js/
 │   └── script.js
+├── Prsentation/
+│   ├── 
+│   └── 
 ├── .gitignore 
 ├── index.html
 └── README.md
