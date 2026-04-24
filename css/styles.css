@@ -1,3 +1,6 @@
+/* =========================
+   Global theme variables
+========================= */
 :root {
   --bg: #ffffff;
   --text: #111827;
@@ -16,9 +19,16 @@ body.dark {
   --accent: #60a5fa;
 }
 
-* { box-sizing: border-box; }
+/* =========================
+   Base styles
+========================= */
+* {
+  box-sizing: border-box;
+}
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
@@ -33,6 +43,13 @@ body {
   margin: 0 auto;
 }
 
+.muted {
+  color: var(--muted);
+}
+
+/* =========================
+   Header and navigation
+========================= */
 .header {
   position: sticky;
   top: 0;
@@ -49,34 +66,34 @@ body {
 }
 
 .logo {
-  text-decoration: none;
   color: var(--text);
   font-weight: 800;
   letter-spacing: 0.2px;
+  text-decoration: none;
 }
 
 .menu-btn {
   display: none;
   font-size: 20px;
   background: transparent;
+  color: var(--text);
   border: 1px solid var(--border);
   padding: 6px 10px;
   border-radius: 10px;
-  color: var(--text);
 }
 
 .nav-links {
-  list-style: none;
   display: flex;
-  gap: 14px;
   align-items: center;
+  gap: 14px;
+  list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .nav-links a {
-  text-decoration: none;
   color: var(--text);
+  text-decoration: none;
   padding: 6px 8px;
   border-radius: 10px;
 }
@@ -86,30 +103,46 @@ body {
 }
 
 .theme-btn {
-  border: 1px solid var(--border);
   background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
   padding: 6px 10px;
   border-radius: 10px;
-  cursor: pointer;
-  color: var(--text);
 }
 
+/* =========================
+   Hero section
+========================= */
 .hero {
   padding: 52px 0 22px;
 }
 
-.tagline { color: var(--muted); margin-top: 8px; }
+.tagline {
+  color: var(--muted);
+  margin-top: 8px;
+}
 
-.hero-actions { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+.welcome-message {
+  margin-top: 10px;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
 
 .cta {
   display: inline-block;
   background: var(--accent);
-  color: white;
+  color: #ffffff;
   padding: 10px 14px;
   border-radius: 12px;
-  text-decoration: none;
   font-weight: 600;
+  text-decoration: none;
 }
 
 .cta.ghost {
@@ -118,13 +151,45 @@ body {
   border: 1px solid var(--border);
 }
 
+/* =========================
+   General sections
+========================= */
 .section {
   padding: 28px 0;
   border-top: 1px solid var(--border);
 }
 
-.muted { color: var(--muted); }
+/* =========================
+   Portfolio highlights
+========================= */
+.highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 14px;
+}
 
+.highlight-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.highlight-card h3 {
+  margin-top: 0;
+  color: var(--accent);
+}
+
+/* =========================
+   About section
+========================= */
 .about-grid {
   display: grid;
   grid-template-columns: 160px 1fr;
@@ -137,131 +202,45 @@ body {
   width: 160px;
   height: 160px;
   object-fit: cover;
-  border-radius: 16px;
-  border: 1px solid var(--border);
   background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
 }
 
 .chips {
-  list-style: none;
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
-  padding: 0;
+  list-style: none;
   margin: 14px 0 0;
+  padding: 0;
 }
 
 .chips li {
-  border: 1px solid var(--border);
   background: var(--bg);
+  color: var(--muted);
+  border: 1px solid var(--border);
   padding: 6px 10px;
   border-radius: 999px;
   font-size: 14px;
-  color: var(--muted);
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-top: 12px;
-}
-
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 14px;
-}
-
-.card img {
-  width: 100%;
-  height: 170px;
-  object-fit: cover;
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  background: #fff;
-}
-
-.card-actions { margin-top: 10px; }
-
-.link {
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.form {
-  display: grid;
+/* =========================
+   Projects controls
+========================= */
+.project-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 12px;
-  max-width: 520px;
-  margin-top: 12px;
+  flex-wrap: wrap;
+  margin: 12px 0 18px;
 }
 
-label { display: grid; gap: 6px; }
-
-input, textarea, button {
-  font: inherit;
-  padding: 10px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: var(--bg);
-  color: var(--text);
-}
-
-button {
-  cursor: pointer;
-  background: var(--accent);
-  color: white;
-  border: none;
-  font-weight: 700;
-}
-
-.form-msg { color: var(--muted); min-height: 1.2em; }
-
-.footer {
-  border-top: 1px solid var(--border);
-  padding: 18px 0;
-  text-align: center;
-  color: var(--muted);
-}
-
-/* ✅ Mobile / Tablet */
-@media (max-width: 768px) {
-  .menu-btn { display: inline-block; }
-
-  .nav { position: relative; }
-
-  .nav-links {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 56px;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 10px;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 220px;
-  }
-
-  .nav-links.open { display: flex; }
-
-  .cards { grid-template-columns: 1fr; }
-  .about-grid { grid-template-columns: 1fr; }
-  .profile { width: 100%; height: 220px; }
-}
-
-
-/*  Assignment 2 additions */
-
-/* Filter buttons */
 .filter-buttons {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
-  margin: 12px 0 18px;
 }
 
 .filter-btn {
@@ -270,100 +249,11 @@ button {
   border: 1px solid var(--border);
   padding: 8px 14px;
   border-radius: 999px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.filter-btn:hover {
-  background: var(--card);
-  transform: translateY(-2px);
 }
 
 .filter-btn.active {
   background: var(--accent);
-  color: white;
-}
-
-/* Cards animation */
-.card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
-}
-
-/* Buttons animation */
-button,
-.cta,
-.link,
-.nav-links a {
-  transition: all 0.3s ease;
-}
-
-button:hover,
-.cta:hover {
-  opacity: 0.92;
-  transform: translateY(-2px);
-}
-
-/* Empty state */
-.empty-state {
-  color: var(--muted);
-  margin: 8px 0 16px;
-  font-weight: 600;
-}
-
-/* Form validation styles */
-.error-text {
-  color: #dc2626;
-  font-size: 0.9rem;
-  min-height: 1.1em;
-}
-
-input.error,
-textarea.error {
-  border: 1px solid #dc2626;
-}
-
-input.success,
-textarea.success {
-  border: 1px solid #16a34a;
-}
-
-/* Success / error message animation */
-.form-msg {
-  min-height: 1.2em;
-  font-weight: 600;
-  opacity: 0;
-  transform: translateY(6px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.form-msg.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .filter-buttons {
-    gap: 8px;
-  }
-
-  .filter-btn {
-    width: fit-content;
-  }
-}
-
-.project-controls {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin: 12px 0 18px;
+  color: #ffffff;
 }
 
 .sort-label {
@@ -375,30 +265,100 @@ textarea.success {
 
 select {
   font: inherit;
-  padding: 8px 10px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
   background: var(--bg);
   color: var(--text);
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  border-radius: 10px;
 }
 
+.empty-state {
+  color: var(--muted);
+  margin: 8px 0 16px;
+  font-weight: 600;
+}
+
+/* =========================
+   Cards and repositories
+========================= */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.card,
 .repo-card {
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 14px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+.card:hover,
+.repo-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.card-actions {
+  margin-top: 10px;
 }
 
 .repo-card h3 {
   margin-top: 0;
 }
 
+.link,
 .repo-card a {
   color: var(--accent);
+  font-weight: 600;
   text-decoration: none;
+}
+
+.status-message {
+  margin: 12px 0;
+  color: var(--muted);
   font-weight: 600;
 }
 
+/* =========================
+   Buttons and links
+========================= */
+button,
+.cta,
+.link,
+.nav-links a {
+  transition: all 0.3s ease;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  background: var(--accent);
+  color: #ffffff;
+  border: none;
+  padding: 10px;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+button:hover,
+.cta:hover {
+  opacity: 0.92;
+  transform: translateY(-2px);
+}
 
 .view-btn {
   background: transparent;
@@ -411,9 +371,67 @@ select {
 
 .view-btn:hover {
   background: var(--accent);
-  color: #fff;
+  color: #ffffff;
 }
 
+/* =========================
+   Contact form
+========================= */
+.form {
+  display: grid;
+  gap: 12px;
+  max-width: 520px;
+  margin-top: 12px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+}
+
+input,
+textarea {
+  font: inherit;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.error-text {
+  color: #dc2626;
+  font-size: 0.9rem;
+  min-height: 1.1em;
+}
+
+input.error,
+textarea.error {
+  border-color: #dc2626;
+}
+
+input.success,
+textarea.success {
+  border-color: #16a34a;
+}
+
+.form-msg {
+  min-height: 1.2em;
+  color: var(--muted);
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.form-msg.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================
+   Project modal
+========================= */
 .modal {
   display: none;
   position: fixed;
@@ -447,6 +465,7 @@ select {
     opacity: 0;
     transform: translateY(12px) scale(0.98);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -455,11 +474,11 @@ select {
 
 .close-btn {
   float: right;
+  width: 36px;
+  height: 36px;
   background: transparent;
   color: var(--text);
   border: 1px solid var(--border);
-  width: 36px;
-  height: 36px;
   border-radius: 50%;
   font-size: 22px;
   line-height: 1;
@@ -483,15 +502,82 @@ select {
   display: inline-block;
   margin-top: 18px;
   background: var(--accent);
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
   padding: 10px 14px;
   border-radius: 12px;
   font-weight: 700;
 }
 
-.welcome-message {
-  margin-top: 10px;
+/* =========================
+   Footer
+========================= */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 18px 0;
+  text-align: center;
+  color: var(--muted);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
   color: var(--accent);
-  font-weight: 700;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* =========================
+   Responsive design
+========================= */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: inline-block;
+  }
+
+  .nav {
+    position: relative;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 56px;
+    width: 220px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .highlight-grid,
+  .cards,
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile {
+    width: 100%;
+    height: 220px;
+  }
+
+  .filter-buttons {
+    gap: 8px;
+  }
+
+  .filter-btn {
+    width: fit-content;
+  }
 }

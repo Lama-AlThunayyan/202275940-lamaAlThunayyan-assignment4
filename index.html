@@ -12,55 +12,14 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
-<!-- Project Details Modal -->
-<div id="projectModal" class="modal" aria-hidden="true">
-  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <button class="close-btn" type="button" aria-label="Close modal">&times;</button>
-
-    <h2 id="modalTitle"></h2>
-
-    <div class="modal-section">
-      <h3>Problem</h3>
-      <p id="modalProblem"></p>
-    </div>
-
-    <div class="modal-section">
-      <h3>Solution</h3>
-      <p id="modalSolution"></p>
-    </div>
-
-    <div class="modal-section">
-      <h3>Key Features</h3>
-      <ul id="modalFeatures"></ul>
-    </div>
-
-    <div class="modal-section">
-      <h3>Technologies</h3>
-      <ul id="modalTech"></ul>
-    </div>
-
-    <a id="modalLink" class="modal-link" target="_blank" rel="noopener noreferrer">
-      View on GitHub
-    </a>
-  </div>
-</div>
-
 <body>
-  <!-- =========================
-       Header / Navigation
-  ========================== -->
+  <!-- Header and navigation -->
   <header class="header" id="top">
     <nav class="nav container">
-      <!-- Website logo / home link -->
       <a class="logo" href="#top">MyPortfolio</a>
 
-      <!-- Mobile menu toggle button -->
-      <button
-        class="menu-btn"
-        id="menuBtn"
-        type="button"
-        aria-label="Toggle menu"
-      >
+      <!-- Mobile menu button -->
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Toggle menu">
         ☰
       </button>
 
@@ -71,14 +30,8 @@
         <li><a href="#github">GitHub</a></li>
         <li><a href="#contact">Contact</a></li>
 
-        <!-- Theme toggle button -->
         <li>
-          <button
-            class="theme-btn"
-            id="themeBtn"
-            type="button"
-            aria-label="Toggle theme"
-          >
+          <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle theme">
             🌙
           </button>
         </li>
@@ -87,31 +40,27 @@
   </header>
 
   <main>
-    <!-- =========================
-         Hero Section
-    ========================== -->
-    <section class="hero container">
+    <!-- Hero section -->
+    <section class="hero container" id="hero">
       <p id="greetingMessage" class="welcome-message"></p>
+
       <h1>Lama Al-Thunayyan</h1>
       <p class="tagline">
         Aspiring Web Developer • Building clean, responsive websites
       </p>
 
-      <!-- Main action buttons -->
       <div class="hero-actions">
         <a class="cta" href="#projects">View Projects</a>
         <a class="cta ghost" href="#contact">Contact Me</a>
       </div>
     </section>
 
-    <!-- =========================
-         About Section
-    ========================== -->
+
+    <!-- About section -->
     <section class="section container" id="about">
       <h2>About Me</h2>
 
       <div class="about-grid">
-        <!-- Profile image -->
         <img
           class="profile"
           src="assets/images/profile-icon-design-free-vector.jpg"
@@ -130,7 +79,6 @@
             Interests: UI design, responsive layouts, and front-end fundamentals.
           </p>
 
-          <!-- Small skill chips -->
           <ul class="chips" aria-label="Skills">
             <li>HTML</li>
             <li>CSS</li>
@@ -141,34 +89,18 @@
       </div>
     </section>
 
-    <!-- =========================
-         Projects Section
-         Assignment 3 additions:
-         - Filter buttons
-         - Sort dropdown
-         - data-category
-         - data-title
-    ========================== -->
+    <!-- Projects section -->
     <section class="section container" id="projects">
       <h2>Projects</h2>
 
-      <!-- Project controls:
-           Filter buttons + sorting dropdown -->
+      <!-- Filter and sort controls -->
       <div class="project-controls">
-        <!-- Filter buttons -->
         <div class="filter-buttons">
-          <button type="button" class="filter-btn active" data-filter="all">
-            All
-          </button>
-          <button type="button" class="filter-btn" data-filter="app">
-            App
-          </button>
-          <button type="button" class="filter-btn" data-filter="web">
-            Web
-          </button>
+          <button type="button" class="filter-btn active" data-filter="all">All</button>
+          <button type="button" class="filter-btn" data-filter="app">App</button>
+          <button type="button" class="filter-btn" data-filter="web">Web</button>
         </div>
 
-        <!-- Sort dropdown -->
         <label for="sortProjects" class="sort-label">
           Sort:
           <select id="sortProjects">
@@ -179,20 +111,14 @@
         </label>
       </div>
 
-      <!-- Message shown if no projects match filter -->
       <p id="emptyState" class="empty-state" hidden>No projects found.</p>
 
-      <!-- Project cards container -->
       <div class="cards">
         <!-- Project 1 -->
-        <article
-          class="card"
-          data-category="app"
-          data-title="Folder Visualizer"
-        >
+        <article class="card" data-category="app" data-title="Folder Visualizer">
           <img
             src="assets/images/project1.jpg"
-            alt="Project 1 preview"
+            alt="Folder Visualizer project preview"
             loading="lazy"
           />
 
@@ -202,35 +128,30 @@
             This application allows users to select any directory on their system.
             It scans all files and subfolders, calculates their sizes, and displays
             them visually using size-based bars. Blue bars represent folders and
-            orange bars represent files, making it easy to compare storage
-            distribution.
+            orange bars represent files, making it easy to compare storage distribution.
           </p>
 
           <div class="card-actions">
-
             <button
-  class="view-btn"
-  type="button"
-  data-title="Folder Visualizer"
-  data-problem="Users often struggle to understand which folders or files are taking the most storage space."
-  data-solution="The application scans a selected directory, calculates file and folder sizes, and visualizes them using size-based bars."
-  data-features="Directory scanning,Size calculation,Visual comparison bars,Folder and file color coding"
-  data-tech="Java,File System,Data Visualization,Desktop UI"
-              data-link="https://github.com/Lama-AlThunayyan/SWE-316--HW2---Folder-Visualizer.git">
-  View Details
-</button>
+              class="view-btn"
+              type="button"
+              data-title="Folder Visualizer"
+              data-problem="Users often struggle to understand which folders or files are taking the most storage space."
+              data-solution="The application scans a selected directory, calculates file and folder sizes, and visualizes them using size-based bars."
+              data-features="Directory scanning, Size calculation, Visual comparison bars, Folder and file color coding"
+              data-tech="Java, File System, Data Visualization, Desktop UI"
+              data-link="https://github.com/Lama-AlThunayyan/SWE-316--HW2---Folder-Visualizer.git"
+            >
+              View Details
+            </button>
           </div>
         </article>
 
         <!-- Project 2 -->
-        <article
-          class="card"
-          data-category="web"
-          data-title="Weekly Schedule Distance Visualizer"
-        >
+        <article class="card" data-category="web" data-title="Weekly Schedule Distance Visualizer">
           <img
             src="assets/images/project2.jpg"
-            alt="Project 2 preview"
+            alt="Weekly Schedule Distance Visualizer project preview"
             loading="lazy"
           />
 
@@ -245,80 +166,52 @@
           </p>
 
           <div class="card-actions">
-
             <button
-  class="view-btn"
-  type="button"
-  data-title="Weekly Schedule Distance Visualizer"
-  data-problem="Students may not realize how much walking distance their daily schedule requires between campus buildings."
-  data-solution="The application uses CRNs and selected days to display courses, buildings, walking distance, and the path visually on a campus map."
-  data-features="CRN input,Day filtering,Course summary,Building count,Walking distance calculation,Path visualization"
-  data-tech="JavaScript,Data Processing,Maps,UI Design"
-              data-link="https://github.com/Lama-AlThunayyan/hw1-SWE316---Term-Schedule-Visualization.git">
-  View Details
-</button>
+              class="view-btn"
+              type="button"
+              data-title="Weekly Schedule Distance Visualizer"
+              data-problem="Students may not realize how much walking distance their daily schedule requires between campus buildings."
+              data-solution="The application uses CRNs and selected days to display courses, buildings, walking distance, and the path visually on a campus map."
+              data-features="CRN input, Day filtering, Course summary, Building count, Walking distance calculation, Path visualization"
+              data-tech="JavaScript, Data Processing, Maps, UI Design"
+              data-link="https://github.com/Lama-AlThunayyan/hw1-SWE316---Term-Schedule-Visualization.git"
+            >
+              View Details
+            </button>
           </div>
         </article>
-
       </div>
     </section>
 
-    <!-- =========================
-         GitHub API Section
-         Assignment 3 addition
-         Repositories will be loaded
-         dynamically using JavaScript
-    ========================== -->
+    <!-- GitHub API section -->
     <section class="section container" id="github">
       <h2>GitHub Repositories</h2>
       <p class="muted">
         Latest repositories fetched dynamically from the GitHub API.
       </p>
 
-      <!-- Status message:
-           Loading / error / no repos -->
-      <div id="repoStatus" class="muted">Loading repositories...</div>
-
-      <!-- Repo cards will be injected here using JavaScript -->
+      <div id="repoStatus" class="status-message">Loading repositories...</div>
       <div class="cards" id="repoContainer"></div>
     </section>
 
-    <!-- =========================
-         Contact Section
-         Includes validation-ready fields
-    ========================== -->
+    <!-- Contact section -->
     <section class="section container" id="contact">
       <h2>Contact</h2>
 
-      <!-- novalidate allows custom JS validation instead of browser default -->
+      <!-- novalidate lets JavaScript handle the validation messages -->
       <form class="form" id="contactForm" novalidate>
-        <!-- Name field -->
         <label for="name">
           Name
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Your name"
-            required
-          />
+          <input type="text" id="name" name="name" placeholder="Your name" required />
           <small class="error-text" id="nameError"></small>
         </label>
 
-        <!-- Email field -->
         <label for="email">
           Email
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="email@example.com"
-            required
-          />
+          <input type="email" id="email" name="email" placeholder="email@example.com" required />
           <small class="error-text" id="emailError"></small>
         </label>
 
-        <!-- Message field -->
         <label for="message">
           Message
           <textarea
@@ -331,20 +224,60 @@
           <small class="error-text" id="messageError"></small>
         </label>
 
-        <!-- Submit button -->
         <button type="submit">Send</button>
-
-        <!-- Dynamic success / error feedback -->
         <p class="form-msg" id="formMsg" aria-live="polite"></p>
       </form>
     </section>
   </main>
 
-  <!-- =========================
-       Footer
-  ========================== -->
+  <!-- Project details modal -->
+  <div id="projectModal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="close-btn" type="button" aria-label="Close modal">
+        &times;
+      </button>
+
+      <h2 id="modalTitle"></h2>
+
+      <div class="modal-section">
+        <h3>Problem</h3>
+        <p id="modalProblem"></p>
+      </div>
+
+      <div class="modal-section">
+        <h3>Solution</h3>
+        <p id="modalSolution"></p>
+      </div>
+
+      <div class="modal-section">
+        <h3>Key Features</h3>
+        <ul id="modalFeatures"></ul>
+      </div>
+
+      <div class="modal-section">
+        <h3>Technologies</h3>
+        <ul id="modalTech"></ul>
+      </div>
+
+      <a id="modalLink" class="modal-link" target="_blank" rel="noopener noreferrer">
+        View on GitHub
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
   <footer class="footer">
     <p>© <span id="year"></span> Lama Al Thunayyan</p>
+
+    <p class="footer-links">
+      <a href="https://github.com/Lama-AlThunayyan" target="_blank" rel="noopener noreferrer">
+        GitHub
+      </a>
+      <span>•</span>
+      <a href="#contact">Contact</a>
+      <span>•</span>
+      <a href="#hero">Back to top</a>
+    </p>
   </footer>
 
   <!-- Main JavaScript file -->

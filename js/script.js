@@ -1,10 +1,12 @@
-// Automatically update footer year
-document.getElementById("year").textContent = new Date().getFullYear();
+/* =========================
+   Footer year
+========================= */
+const yearElement = document.getElementById("year");
+yearElement.textContent = new Date().getFullYear();
 
-
-// =========================
-// Mobile menu
-// =========================
+/* =========================
+   Mobile navigation menu
+========================= */
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
 
@@ -12,19 +14,20 @@ menuBtn.addEventListener("click", () => {
   navLinks.classList.toggle("open");
 });
 
-navLinks.addEventListener("click", (e) => {
-  if (e.target.tagName === "A") {
+// Close mobile menu after clicking a navigation link
+navLinks.addEventListener("click", (event) => {
+  if (event.target.tagName === "A") {
     navLinks.classList.remove("open");
   }
 });
 
-
-// =========================
-// Theme toggle with localStorage
-// =========================
+/* =========================
+   Theme toggle with localStorage
+========================= */
 const themeBtn = document.getElementById("themeBtn");
 const savedTheme = localStorage.getItem("theme");
 
+// Apply saved theme when the page loads
 if (savedTheme === "dark") {
   document.body.classList.add("dark");
   themeBtn.textContent = "☀️";
@@ -39,43 +42,96 @@ themeBtn.addEventListener("click", () => {
   themeBtn.textContent = isDark ? "☀️" : "🌙";
 });
 
+/* =========================
+   Time-based greeting
+========================= */
+const greetingMessage = document.getElementById("greetingMessage");
 
-// =========================
-// Dynamic Feature: Project Filter
-// =========================
+if (greetingMessage) {
+  const hour = new Date().getHours();
+  let greeting = "Hello";
+
+  if (hour < 12) {
+    greeting = "Good morning";
+  } else if (hour < 18) {
+    greeting = "Good afternoon";
+  } else {
+    greeting = "Good evening";
+  }
+
+  greetingMessage.textContent = `👋 ${greeting}! Welcome to my portfolio.`;
+}
+
+/* =========================
+   Project filtering, sorting, and saved state
+========================= */
 const filterButtons = document.querySelectorAll(".filter-btn");
-const projectCards = document.querySelectorAll(".card");
+const sortProjects = document.getElementById("sortProjects");
+const projectsContainer = document.querySelector("#projects .cards");
+const projectCards = Array.from(document.querySelectorAll("#projects .card"));
 const emptyState = document.getElementById("emptyState");
+
+// Load saved project controls, or use defaults
+let currentFilter = localStorage.getItem("projectFilter") || "all";
+let currentSort = localStorage.getItem("projectSort") || "default";
+
+function updateProjectCards() {
+  // First, filter cards by category
+  projectCards.forEach((card) => {
+    const matchesFilter =
+      currentFilter === "all" || card.dataset.category === currentFilter;
+
+    card.hidden = !matchesFilter;
+  });
+
+  // Then, sort only the visible cards
+  const visibleCards = projectCards.filter((card) => !card.hidden);
+
+  if (currentSort === "az") {
+    visibleCards.sort((a, b) => a.dataset.title.localeCompare(b.dataset.title));
+  } else if (currentSort === "za") {
+    visibleCards.sort((a, b) => b.dataset.title.localeCompare(a.dataset.title));
+  }
+
+  // Re-append visible cards in the selected order
+  visibleCards.forEach((card) => {
+    projectsContainer.appendChild(card);
+  });
+
+  // Update active filter button
+  filterButtons.forEach((button) => {
+    button.classList.toggle("active", button.dataset.filter === currentFilter);
+  });
+
+  // Update dropdown value
+  sortProjects.value = currentSort;
+
+  // Save user choices
+  localStorage.setItem("projectFilter", currentFilter);
+  localStorage.setItem("projectSort", currentSort);
+
+  // Show message if no projects match the filter
+  emptyState.hidden = visibleCards.length !== 0;
+}
 
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    const filter = button.dataset.filter;
-    let visibleCount = 0;
-
-    // active button style
-    filterButtons.forEach((btn) => btn.classList.remove("active"));
-    button.classList.add("active");
-
-    projectCards.forEach((card) => {
-      const category = card.dataset.category;
-
-      if (filter === "all" || category === filter) {
-        card.hidden = false;
-        visibleCount++;
-      } else {
-        card.hidden = true;
-      }
-    });
-
-    emptyState.hidden = visibleCount !== 0;
+    currentFilter = button.dataset.filter;
+    updateProjectCards();
   });
 });
 
+sortProjects.addEventListener("change", () => {
+  currentSort = sortProjects.value;
+  updateProjectCards();
+});
 
-// =========================
-// Data Handling + User Feedback:
-// Form validation
-// =========================
+// Apply saved filter and sort when the page loads
+updateProjectCards();
+
+/* =========================
+   Contact form validation
+========================= */
 const contactForm = document.getElementById("contactForm");
 const formMsg = document.getElementById("formMsg");
 
@@ -103,8 +159,8 @@ function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-contactForm.addEventListener("submit", (e) => {
-  e.preventDefault();
+contactForm.addEventListener("submit", (event) => {
+  event.preventDefault();
 
   const nameValue = nameInput.value.trim();
   const emailValue = emailInput.value.trim();
@@ -112,11 +168,10 @@ contactForm.addEventListener("submit", (e) => {
 
   let isValid = true;
 
-  // reset form message
   formMsg.textContent = "";
   formMsg.classList.remove("show");
 
-  // Name validation
+  // Validate name
   if (nameValue === "") {
     setError(nameInput, nameError, "Please enter your name.");
     isValid = false;
@@ -127,7 +182,7 @@ contactForm.addEventListener("submit", (e) => {
     setSuccess(nameInput, nameError);
   }
 
-  // Email validation
+  // Validate email
   if (emailValue === "") {
     setError(emailInput, emailError, "Please enter your email.");
     isValid = false;
@@ -138,7 +193,7 @@ contactForm.addEventListener("submit", (e) => {
     setSuccess(emailInput, emailError);
   }
 
-  // Message validation
+  // Validate message
   if (messageValue === "") {
     setError(messageInput, messageError, "Please enter your message.");
     isValid = false;
@@ -149,14 +204,14 @@ contactForm.addEventListener("submit", (e) => {
     setSuccess(messageInput, messageError);
   }
 
-  // Final feedback
+  // Show final feedback
   if (isValid) {
     formMsg.textContent = "Message sent successfully!";
     formMsg.style.color = "#16a34a";
     formMsg.classList.add("show");
+
     contactForm.reset();
 
-    // remove success borders after reset
     [nameInput, emailInput, messageInput].forEach((input) => {
       input.classList.remove("success");
     });
@@ -167,82 +222,20 @@ contactForm.addEventListener("submit", (e) => {
   }
 });
 
-
-// =========================
-// Assignment 3 Additions: Projects filter + sort + remembered state
-// =========================
-const sortProjects = document.getElementById("sortProjects");
-const projectsContainer = document.querySelector("#projects .cards");
-const projectCardsArray = Array.from(document.querySelectorAll("#projects .card"));
-
-let currentFilter = localStorage.getItem("projectFilter") || "all";
-let currentSort = localStorage.getItem("projectSort") || "default";
-
-function applyProjectControls() {
-  let visibleCards = [...projectCardsArray];
-
-  // Filter
-  visibleCards.forEach((card) => {
-    const matches = currentFilter === "all" || card.dataset.category === currentFilter;
-    card.hidden = !matches;
-  });
-
-  // Sort only visible cards
-  const filteredCards = projectCardsArray.filter((card) => !card.hidden);
-
-  if (currentSort === "az") {
-    filteredCards.sort((a, b) =>
-      a.dataset.title.localeCompare(b.dataset.title)
-    );
-  } else if (currentSort === "za") {
-    filteredCards.sort((a, b) =>
-      b.dataset.title.localeCompare(a.dataset.title)
-    );
-  }
-
-  filteredCards.forEach((card) => projectsContainer.appendChild(card));
-
-  // update active button
-  filterButtons.forEach((btn) => {
-    btn.classList.toggle("active", btn.dataset.filter === currentFilter);
-  });
-
-  sortProjects.value = currentSort;
-
-  localStorage.setItem("projectFilter", currentFilter);
-  localStorage.setItem("projectSort", currentSort);
-
-  emptyState.hidden = filteredCards.length !== 0;
-}
-
-filterButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    currentFilter = button.dataset.filter;
-    applyProjectControls();
-  });
-});
-
-sortProjects.addEventListener("change", () => {
-  currentSort = sortProjects.value;
-  applyProjectControls();
-});
-
-applyProjectControls();
-
-// =========================
-// GitHub API integration
-// =========================
+/* =========================
+   GitHub API integration
+========================= */
 const repoContainer = document.getElementById("repoContainer");
 const repoStatus = document.getElementById("repoStatus");
-
-// My GitHub username
 const githubUsername = "Lama-AlThunayyan";
 
 async function loadGitHubRepos() {
   try {
     repoStatus.textContent = "Loading repositories...";
 
-    const response = await fetch(`https://api.github.com/users/${githubUsername}/repos?sort=updated`);
+    const response = await fetch(
+      `https://api.github.com/users/${githubUsername}/repos?sort=updated`
+    );
 
     if (!response.ok) {
       throw new Error("Failed to fetch repositories.");
@@ -257,6 +250,7 @@ async function loadGitHubRepos() {
       return;
     }
 
+    // Show only the most recently updated repositories
     const topRepos = repos.slice(0, 4);
 
     topRepos.forEach((repo) => {
@@ -265,9 +259,11 @@ async function loadGitHubRepos() {
 
       card.innerHTML = `
         <h3>${repo.name}</h3>
-        <p>${repo.description ? repo.description : "No description available."}</p>
+        <p>${repo.description || "No description available."}</p>
         <p class="muted">⭐ ${repo.stargazers_count} | 🍴 ${repo.forks_count}</p>
-        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">View Repository</a>
+        <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">
+          View Repository
+        </a>
       `;
 
       repoContainer.appendChild(card);
@@ -275,16 +271,18 @@ async function loadGitHubRepos() {
 
     repoStatus.textContent = "";
   } catch (error) {
-    repoStatus.textContent = "Unable to load GitHub repositories right now. Please try again later.";
+    repoStatus.textContent =
+      "Unable to load GitHub repositories right now. Please try again later.";
+
     console.error(error);
   }
 }
 
 loadGitHubRepos();
 
-// =========================
-// Assignment 4: Project Details Modal
-// =========================
+/* =========================
+   Project details modal
+========================= */
 const projectModal = document.getElementById("projectModal");
 const closeModalBtn = document.querySelector(".close-btn");
 
@@ -327,39 +325,23 @@ function closeProjectModal() {
 }
 
 viewButtons.forEach((button) => {
-  button.addEventListener("click", () => openProjectModal(button));
+  button.addEventListener("click", () => {
+    openProjectModal(button);
+  });
 });
 
 closeModalBtn.addEventListener("click", closeProjectModal);
 
+// Close modal when clicking outside the modal box
 projectModal.addEventListener("click", (event) => {
   if (event.target === projectModal) {
     closeProjectModal();
   }
 });
 
+// Close modal using Escape key
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && projectModal.classList.contains("show")) {
     closeProjectModal();
   }
 });
-
-// =========================
-// Assignment 4: Time-Based Greeting
-// =========================
-const greetingMessage = document.getElementById("greetingMessage");
-
-if (greetingMessage) {
-  const hour = new Date().getHours();
-  let greeting = "Hello";
-
-  if (hour < 12) {
-    greeting = "Good morning";
-  } else if (hour < 18) {
-    greeting = "Good afternoon";
-  } else {
-    greeting = "Good evening";
-  }
-
-  greetingMessage.textContent = `👋 ${greeting}! Welcome to my portfolio.`;
-}
