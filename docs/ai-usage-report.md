@@ -1,81 +1,86 @@
-# AI Usage Report
+# AI Usage Report (Assignment 4)
 
-## 1. Tools Used & Use Cases
+## 1. Tools Used & Use Cases  
 
-### ChatGPT
-Used as a supporting assistant to:
+### ChatGPT  
+ChatGPT was used as a supporting assistant during Assignment 4 to help improve the application and finalize advanced features.
 
-- Plan advanced features (API, filtering, sorting)
-- Explain JavaScript logic and debugging
-- Assist in implementing API integration
-- Improve UI/UX design
-- Help write documentation
+It was specifically used to:
 
----
-
-## 2. Example Prompts Used
-
-Some example prompts used during Assignment 3 development:
-
-- "How to fetch and display GitHub repositories using JavaScript fetch API?"
-- "How to handle errors when an API request fails and show a user-friendly message?"
-- "How to combine filtering and sorting logic for project cards in JavaScript?"
-- "How to store and restore user preferences (filter, sort, theme) using localStorage?"
-- "How to dynamically create HTML elements from API data?"
-- "How to show loading, success, and error states for API content?"
-- "How to improve user feedback for form validation with clear messages?"
-
-These prompts were directly related to implementing the advanced functionality required in this assignment.
+- Design and implement the project details modal (popup window)
+- Improve the structure of project data using HTML data attributes
+- Refine JavaScript logic for modal interaction (open, close, and content display)
+- Enhance user experience by improving interaction flow
+- Suggest improvements for UI consistency and layout
 
 ---
 
-## 3. Benefits & Challenges
+## 2. Example Prompts Used  
+
+The following prompts were used specifically for Assignment 4:
+
+- "How to create a modal popup in JavaScript for project details?"
+- "How to pass data from HTML buttons to JavaScript using data attributes?"
+- "How to display dynamic content inside a modal?"
+- "How to close a modal when clicking outside or pressing Escape?"
+- "How to improve user experience when viewing project details?"
+
+These prompts directly supported the implementation of the new features added in Assignment 4.
+
+---
+
+## 3. Benefits & Challenges  
 
 ### Benefits
-- Faster development process
-- Improved understanding of advanced concepts
-- Helped structure complex logic
-- Assisted in debugging and testing
+- Helped implement a more advanced and interactive feature (project modal)
+- Improved understanding of DOM manipulation and event handling
+- Assisted in organizing code more clearly
+- Helped enhance the overall user experience of the application
 
 ### Challenges
-- Some suggestions required simplification
-- Needed to adapt code to match assignment requirements
-- Ensured originality and clarity
+- Some AI suggestions were more complex than needed
+- Required simplifying the code to match the project level
+- Needed to adjust solutions to fit the existing structure of the application
+- Ensured that all changes were consistent with previous assignments
 
 ---
 
-## 4. Risks of Using AI
+## 4. Risks of Using AI  
 
-Using AI tools in this assignment introduced several potential risks:
+Using AI tools in Assignment 4 introduced several risks:
 
-- AI may generate incorrect API usage (e.g., wrong endpoint or missing error handling)
-- AI solutions may not properly handle edge cases (such as empty API responses or network failure)
-- Generated filtering/sorting logic may be inefficient or not work correctly with dynamic DOM updates
-- Overly complex code could be suggested for simple features
-- AI may not fully consider user experience (e.g., missing loading states or unclear messages)
+- AI may generate modal logic that does not handle all user interactions correctly
+- Suggested solutions may not fully match the structure of the existing project
+- Overly complex implementations may reduce code readability
+- AI may not consider all edge cases (e.g., closing modal behavior)
 
-To avoid these issues, all AI-generated suggestions were carefully reviewed, simplified, and tested within the context of this project.
-
----
-
-## 5. Responsible Use & Modifications
-
-- AI was used only as a guide
-- All code was reviewed and understood
-- Code was modified to fit the project
-- Features were tested manually
-- Final implementation reflects my own work
-
-I ensured that all AI-generated code aligns with course concepts and was not used without understanding.
+To reduce these risks:
+- All code was tested manually
+- Interaction cases (click, outside click, Escape key) were verified
+- Code was simplified and adapted where needed
 
 ---
 
-## 6. Learning Outcomes
+## 5. Responsible Use & Modifications  
 
-Through using AI, I learned:
+To ensure proper use of AI:
 
-- How to integrate APIs into web applications
-- How to combine filtering and sorting logic
-- How to manage application state using localStorage
-- How to improve user interaction and feedback
-- How to critically evaluate AI-generated solutions
+- AI was used only as a guide for understanding and implementation
+- All code was reviewed and rewritten where necessary
+- The final implementation was adjusted to match the project design
+- Unnecessary complexity was removed
+- Features were tested step-by-step before finalizing
+
+---
+
+## 6. Learning Outcomes  
+
+Through using AI in Assignment 4, I learned:
+
+- How to design and implement interactive modal components
+- How to manage dynamic content using JavaScript
+- How to handle user interactions more effectively
+- How to improve user experience through better UI design
+- How to critically evaluate and refine AI-generated solutions
+
+All implemented features reflect my understanding and were not used without review.
