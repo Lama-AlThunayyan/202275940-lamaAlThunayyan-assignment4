@@ -158,7 +158,27 @@ More details are available in `docs/ai-usage-report.md`.
 
 ## Live Deployment
 
+The application is deployed using GitHub Pages and can be accessed here:
+
 [View Live Website](https://lama-althunayyan.github.io/202275940-lamaAlThunayyan-assignment4/)
+
+---
+
+## How to Run Locally
+
+If you would like to run the project locally:
+
+1. Clone or download the repository  
+2. Open the project folder  
+3. Open `index.html` in your browser  
+4. Ensure you have an internet connection for GitHub API features  
+
+---
+
+## Notes
+
+- The live version is recommended for full experience  
+- Local version works the same but requires internet for API data  
 
 ---
 
@@ -181,7 +201,7 @@ assignment-3/
 ├── js/
 │   └── script.js
 ├── Prsentation/
-│   ├── 
+│   ├── Slides.pdf
 │   └── 
 ├── .gitignore 
 ├── index.html
